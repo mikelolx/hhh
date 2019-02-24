@@ -74,38 +74,6 @@ m.sendMessage(args)
 })
 }
 });
-
-
-
-  
-  client.on('message', msg => {
-    if(msg.content === '!help')
-    msg.reply('Check Your DM :white_check_mark:')
-  });
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  client.on("message", message => {
-    if (message.content === "!help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`**Help|هيلب
-
-       !obc | لأرسال برود كاست للكل
-
-       !bc  |  لأرسال برود كاست للأونلاين
-
-   message.author.sendEmbed(embed)
-   
-   }
-   });
+ 
 
 client.login(process.env.BOT_TOKEN);
