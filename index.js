@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "b!"
+var prefix = "!"
 
 
 
 //bc
 
 client.on("message", message => {
-    if (message.content.startsWith("b!obc")) {
+    if (message.content.startsWith("!obc")) {
                  if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' ');
@@ -46,7 +46,7 @@ client.on("message", message => {
 
 client.on('message', message => {
     var  user = message.mentions.users.first() || message.author;
-if (message.content.startsWith("b!avatar")) {
+if (message.content.startsWith("!avatar")) {
 message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
 }
 });
@@ -67,7 +67,7 @@ client.on('ready',  () => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('b!adminbc')){
-if(!message.author.id === 'ايدي حقك') return;
+if(!message.author.id === '480775977727688705') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
@@ -79,7 +79,7 @@ m.sendMessage(args)
 
   
   client.on('message', msg => {
-    if(msg.content === 'b!help')
+    if(msg.content === '!help')
     msg.reply('Check Your DM :white_check_mark:')
   });
   
@@ -93,75 +93,19 @@ m.sendMessage(args)
   
   
   client.on("message", message => {
-    if (message.content === "b!help") {
+    if (message.content === "!help") {
      const embed = new Discord.RichEmbed() 
          .setColor("#00FF00")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`**Help|هيلب
 
-       b!obc | لأرسال برود كاست للكل
+       !obc | لأرسال برود كاست للكل
 
-       b!bc  |  لأرسال برود كاست للأونلاين
+       !bc  |  لأرسال برود كاست للأونلاين
 
-       b!invite | لدعوة البوت الي سيرفرك
-
-       b!support | سيرفر السبورت** `)
    message.author.sendEmbed(embed)
    
    }
    });
 
-
-   client.on("message", message => {
-    if (message.content === "b!invite") {
-     const embed = new Discord.RichEmbed()
-         .setColor("RANDOM")
-         .addField('Broadcast', `رابط دعوة البوت`)
-     message.author.send({embed});
-   
-    }
-   });
-
-
-   client.on("message", message => {
-    if (message.content === "b!support") {
-     const embed = new Discord.RichEmbed()
-         .setColor("RANDOM")
-         .addField('❤سيرفر الدعم الفني', `  رابط سيرفر المساعدة  `)
-     message.author.send({embed});
-   
-    }
-   });
-
-
-
-
-
-   client.on('message', message => {
-    if (message.content.startsWith("b!bot")) {
-    message.channel.send({
-        embed: new Discord.RichEmbed()
-            .setAuthor(client.user.username,client.user.avatarURL)
-            .setThumbnail(client.user.avatarURL)
-            .setColor('RANDOM')
-            .setTitle('``INFO Broadcast Bot`` ')
-            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
-            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
-            .addField('``servers``', [client.guilds.size], true)
-            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
-            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
-            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
-            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
-                  .addField('``My Prefix``' , `[-]` , true)
-                  .addField('``My Language``' , `[ Java Script ]` , true)
-                    })
-}
-});
-
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag} !`);
-          client.user.setActivity("b!help | b!invite",{type: 'WATCHING'});
-  
-  });
-
-client.login("token");
+client.login(process.env.BOT_TOKEN);
